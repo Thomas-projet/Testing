@@ -6,6 +6,7 @@ class Task:
     def __init__(self, description):
         self.description = description
         self.status = True
+        self.id = 0
         
 
 
@@ -19,7 +20,7 @@ class Test(unittest.TestCase):
         self.assertEqual(True, task.status)
 
     def test_taskIdExist(self):
-        task = Task("learn python", 0)
+        task = Task("learn python")
         self.assertEqual(0, task.id)
 
 
