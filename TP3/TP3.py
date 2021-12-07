@@ -2,9 +2,9 @@ import unittest
 
 
 class Task:
-    def __init__(self, description, status):
+    def __init__(self, description):
         self.description = description
-        self.status = status
+        self.status = True
 
 
 
@@ -14,7 +14,7 @@ class Test(unittest.TestCase):
         self.assertEqual("learn python", task.description)
 
     def test_taskStatusExist(self):
-        task = Task("learn python", True)
+        task = Task("learn python")
         self.assertEqual(True, task.status)
 
 
