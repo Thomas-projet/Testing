@@ -1,12 +1,14 @@
+from typing import Counter
 import unittest
 
 
 class Task:
-    
+    counter = 0
     def __init__(self, description):
         self.description = description
         self.status = True
-        self.id = 0
+        self.id = self.counter
+        Task.counter = self.counter + 1
         
 
 
@@ -21,7 +23,7 @@ class Test(unittest.TestCase):
 
     def test_taskIdExist(self):
         task = Task("learn python")
-        self.assertEqual(0, task.id)
+        self.assertLessEqual(0, task.id)
 
     def test_taskIdIsValid(self):
         task1 = Task("learn python")
