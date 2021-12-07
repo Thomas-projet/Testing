@@ -16,6 +16,12 @@ class Task:
     def setToTodo(self):
         self.status = True
 
+def taskManager():
+    pass
+
+def readCommand(myVar):
+    return myVar[:1]
+    
 
 class Test(unittest.TestCase):
     def test_taskExist(self):
@@ -35,15 +41,18 @@ class Test(unittest.TestCase):
         task2 = Task("learn python")
         self.assertNotEqual(task1.id, task2.id)
     
-    def test_SetTaskStatusToDone(self):
+    def test_setTaskStatusToDone(self):
         task = Task("learn python")
         task.setToDone();
         self.assertEqual(False, task.status)
     
-    def test_SetTaskStatusToTodo(self):
+    def test_setTaskStatusToTodo(self):
         task = Task("learn python")
         task.setToTodo();
         self.assertEqual(True, task.status)
+    
+    def test_readCommand (self):
+        self.assertEqual(readCommand("+ command test"), "+")
 
 
 
