@@ -23,6 +23,11 @@ class Test(unittest.TestCase):
         task = Task("learn python")
         self.assertEqual(0, task.id)
 
+    def test_taskIdIsValid(self):
+        task1 = Task("learn python")
+        task2 = Task("learn python")
+        self.assertNotEqual(task1.id, task2.id)
+
 
 if __name__ == '__main__':
     unittest.main()
