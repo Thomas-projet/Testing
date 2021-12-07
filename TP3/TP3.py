@@ -9,7 +9,12 @@ class Task:
         self.status = True
         self.id = self.counter
         Task.counter = self.counter + 1
-        
+    
+    def setToDone(self):
+        self.status = False
+
+    def setToTodo(self):
+        self.status = True
 
 
 class Test(unittest.TestCase):
@@ -29,6 +34,19 @@ class Test(unittest.TestCase):
         task1 = Task("learn python")
         task2 = Task("learn python")
         self.assertNotEqual(task1.id, task2.id)
+    
+    def test_SetTaskStatusToDone(self):
+        task = Task("learn python")
+        task.setToDone();
+        self.assertEqual(False, task.status)
+    
+    def test_SetTaskStatusToTodo(self):
+        task = Task("learn python")
+        task.setToTodo();
+        self.assertEqual(True, task.status)
+
+
+
 
 
 if __name__ == '__main__':
